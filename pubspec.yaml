@@ -33,6 +33,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   http: ^0.13.4
   equatable: ^2.0.3
+  bloc_test: 8.5.0
+  mockito: ^5.1.0
 
 dev_dependencies:
   flutter_test:
@@ -44,6 +46,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^1.0.0
+  build_runner: any
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

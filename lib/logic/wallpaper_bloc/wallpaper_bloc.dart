@@ -13,6 +13,7 @@ class WallpaperBloc extends Bloc<WallpaperEvent, WallpaperState> {
 
 
   WallpaperBloc(this._wallPaperRepository) : super(WallpaperLoadingState()) {
+
     WallpaperModel wallpaperModel = WallpaperModel();
 
     on<LoadWallpaperFromRepositoryEvent>((event, emit) async{
@@ -39,7 +40,7 @@ class WallpaperBloc extends Bloc<WallpaperEvent, WallpaperState> {
         emit(WallpaperLoadingFailedState());
       }finally {
         if(tempWallpaperModel.data.isNotEmpty) {
-          wallpaperModel.data.addAll(tempWallpaperModel.data);
+          wallpaperModel.data = List.from(wallpaperModel.data)..addAll(tempWallpaperModel.data);
           emit(WallpaperLoadedState(wallpaperModel));
         }
       }

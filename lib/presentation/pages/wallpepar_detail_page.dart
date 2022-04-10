@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:test_app/res/wallpaper_colors.dart';
 
@@ -19,7 +20,7 @@ class WallpaperDetailPage extends StatelessWidget {
             _buildTopPageImage(mq),
             _buildDetailRow(mq, "ID", modelData.id),
             const Divider(thickness: 0.3,color: Colors.white,),
-            _buildDetailRow(mq, "Category", modelData.category.name),
+            _buildDetailRow(mq, "Category", modelData.category!.name),
             const Divider(thickness: 0.3,color: Colors.white,),
             _buildDetailRow(mq, "Created At", modelData.createdAt.toString()),
             const Divider(thickness: 0.3,color: Colors.white,),

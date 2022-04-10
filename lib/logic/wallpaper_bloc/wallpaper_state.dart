@@ -16,7 +16,7 @@ class MoreWallpaperLoadingState extends WallpaperState {
   const MoreWallpaperLoadingState(this.wallpaperModel);
 
   @override
-  List<Object> get props => [];
+  List<Object> get props => [wallpaperModel];
 }
 
 class WallpaperLoadedState extends WallpaperState {
@@ -28,7 +28,9 @@ class WallpaperLoadedState extends WallpaperState {
 
   List<Object?> get props => [wallpaperModel];
 
-}class WallpaperLoadingFailedState extends WallpaperState {
+}
+
+class WallpaperLoadingFailedState extends WallpaperState {
   @override
 
   List<Object?> get props => [];

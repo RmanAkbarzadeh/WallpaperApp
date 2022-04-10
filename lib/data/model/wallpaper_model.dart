@@ -1,11 +1,13 @@
 
 import 'dart:convert';
 
+import 'package:equatable/equatable.dart';
+
 WallpaperModel wallpaperModelFromJson(String str) => WallpaperModel.fromJson(json.decode(str));
 
 String wallpaperModelToJson(WallpaperModel data) => json.encode(data.toJson());
 
-class WallpaperModel {
+class WallpaperModel extends Equatable {
   WallpaperModel({
     this.data =const [],
   });
@@ -19,9 +21,13 @@ class WallpaperModel {
   Map<String, dynamic> toJson() => {
     "data": List<dynamic>.from(data.map((x) => x.toJson())),
   };
+
+  @override
+  // TODO: implement props
+  List<Object?> get props => [data];
 }
 
-class Datum {
+class Datum extends Equatable{
   Datum({
     required  this.id,
     required  this.url,
@@ -30,7 +36,7 @@ class Datum {
     required  this.favorites,
     required  this.source,
     required  this.purity,
-    required  this.category,
+    this.category,
     required  this.dimensionX,
     required  this.dimensionY,
     required  this.resolution,
@@ -49,7 +55,7 @@ class Datum {
   int favorites;
   String source;
   Purity purity;
-  Category category;
+  Category? category;
   int dimensionX;
   int dimensionY;
   String resolution;
@@ -99,6 +105,10 @@ class Datum {
     "path": path,
     "thumbs": thumbs.toJson(),
   };
+
+  @override
+  // TODO: implement props
+  List<Object?> get props => [id, url, shortUrl, views, favorites, source, purity, category, dimensionX, dimensionY, resolution, ratio, fileSize, createdAt, colors, path];
 }
 
 enum Category { PEOPLE, ANIME, GENERAL }
